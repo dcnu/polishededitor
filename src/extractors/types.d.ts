@@ -70,6 +70,11 @@ export interface ExpCandy extends Base {
   spritePath: string;
 }
 
+export interface Wing extends Base {
+  name: string;
+  spritePath: string;
+}
+
 export interface BoxTheme extends Base {
   name: string;
 }

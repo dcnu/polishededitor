@@ -3,6 +3,7 @@
 	import { NumberInput } from '../UI';
 	import apricorns from '$data/apricorns.json';
 	import expCandy from '$data/expCandy.json';
+	import wings from '$data/wings.json';
 	import type { BagSlot } from '$lib/types';
 
 	let { bag = $bindable(), PF }: { bag: Record<string, BagSlot>; PF: 'polished' | 'faithful' } =
@@ -71,7 +72,19 @@
 		<Listgroup>
 			{#each bag.wings.contents as wing, i}
 				<ListgroupItem class="flex w-full flex-wrap py-3 gap-3 sm:justify-between sm:flex-nowrap">
-					<P>{wing.name}</P>
+					<div class="flex items-center gap-3">
+						<div
+							class="size-[35px] flex bg-white rounded-lg justify-center items-center border
+							border-gray-300 dark:border-none"
+						>
+							<img
+								class="rounded-sm"
+								src={src(wing.name, wings[PF])}
+								alt={`Sprite of ${wing.name}`}
+							/>
+						</div>
+						<P>{wing.name}</P>
+					</div>
 					<NumberInput class="w-auto" bind:value={bag.wings.contents[i].qty} min={0} max={999} />
 				</ListgroupItem>
 			{/each}
