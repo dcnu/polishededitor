@@ -120,7 +120,7 @@ function reverseParseMon(
 
   //Byte #28: Caught Location
   fileHex[address + 27] = locations[PF].find((location) => location.name === mon.caughtLocation)!
-    .locationNo.toString(16)
+    .index.toString(16)
     .padStart(2, '0');
 
   //Byte #29: Level

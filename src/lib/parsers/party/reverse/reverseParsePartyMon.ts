@@ -121,7 +121,7 @@ function reverseParsePartyMon(
 
   //Byte #31: Caught Location
   fileHex[address + 30] = locations[PF].find((location) => location.name === mon.caughtLocation)!
-    .locationNo.toString(16)
+    .index.toString(16)
     .padStart(2, '0');
 
   //Byte #32: Level
