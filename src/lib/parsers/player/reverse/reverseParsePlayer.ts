@@ -8,7 +8,7 @@ function reverseParsePlayer(
   PF: 'polished' | 'faithful'
 ): string[] {
   //ID
-  fileHex[addresses.wPlayerID] = player.id.toString(16).padStart(4, ' 0').slice(0, 2);
+  fileHex[addresses.wPlayerID] = player.id.toString(16).padStart(4, '0').slice(0, 2);
   fileHex[addresses.wPlayerID + 1] = player.id.toString(16).padStart(4, '0').slice(2);
 
   //Gender
