@@ -1,38 +1,60 @@
-# sv
+# Polished Editor
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A web-based save editor for [Polished Crystal](https://github.com/Rangi42/polishedcrystal), a ROM hack of Pokemon Crystal.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Edit party Pokemon (species, stats, moves, held items)
+- Manage PC box storage
+- Modify bag contents and items
+- Edit player data
+- Support for both Polished Crystal and Faithful Crystal variants
+- Auto-updates by scraping game data files
+- Dark mode support
+
+## Usage
+
+1. Select your game variant (Polished or Faithful)
+2. Upload your `.sav` or `.srm` battery save file (not emulator save states)
+3. Edit your save data using the Party, PC Boxes, Bag, or Player tabs
+4. Download the edited save
+5. Replace your original save file (backup first)
+
+## Tech Stack
+
+- SvelteKit 5 with TypeScript
+- Tailwind CSS 4
+- Flowbite Svelte components
+- Vercel deployment
+
+## Development
 
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev
 ```
 
 ## Building
 
-To create a production version of your app:
-
 ```sh
-npm run build
+pnpm build
+pnpm preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Data Extraction
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+The editor extracts game data from the `polishedcrystal/` submodule:
+
+```sh
+pnpm extract
+```
+
+This parses ASM files and generates JSON data in `src/data/`.
+
+## Credits
+
+Rev3lation, Sylvie (Rangi42), Cammy, Emi, FIQ, Darsh
+
+## License
+
+See [LICENSE.md](LICENSE.md)

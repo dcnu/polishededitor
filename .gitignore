@@ -1,3 +1,10 @@
+# Project specific
+.cursor*
+.claude*
+CLAUDE.md
+TODO*
+archive*
+
 node_modules
 
 # Output
