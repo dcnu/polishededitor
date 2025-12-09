@@ -17,7 +17,7 @@
 	import parseSave from '$lib/parsers/parseSave';
 	import reverseParseSave from '$lib/parsers/reverseParseSave';
 	import { validateSave } from '$lib/utils';
-	import type { BagSlot, Box, PartyMon, Player } from '$lib/types';
+	import type { BagSlot, Box, PartyMon, Player, Pokedex } from '$lib/types';
 	import Bag from './bag/Bag.svelte';
 	import Boxes from './boxes/Boxes.svelte';
 	import Party from './party/Party.svelte';
@@ -30,13 +30,14 @@
 	let boxes = $state<Box[] | null>(null);
 	let bag = $state<Record<string, BagSlot> | null>(null);
 	let player = $state<Player | null>(null);
+	let pokedex = $state<Pokedex | null>(null);
 	let selectedEditor = $state('party');
 
 	async function handleSave(): Promise<void> {
 		if (!file?.[0]) return;
 		toastMsg = await validateSave(file![0]);
 		try {
-			[party, boxes, bag, player] = await parseSave(file![0], PF);
+			[party, boxes, bag, player, pokedex] = await parseSave(file![0], PF);
 		} catch (Error) {
 			console.log(Error);
 			toastMsg =
@@ -50,7 +51,7 @@
 		if (!file?.[0]) return;
 		Object.assign(document.createElement('a'), {
 			href: URL.createObjectURL(
-				new Blob([await reverseParseSave(file[0], party!, boxes!, bag!, player!, PF)])
+				new Blob([await reverseParseSave(file[0], party!, boxes!, bag!, player!, pokedex!, PF)])
 			),
 			download: `${file[0].name.slice(0, -4)}_EDITED${file[0].name.slice(-4)}`
 		}).click();
