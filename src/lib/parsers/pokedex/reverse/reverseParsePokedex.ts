@@ -25,10 +25,10 @@ function reverseParsePokedex(
 	pokedex: Pokedex,
 	PF: 'polished' | 'faithful'
 ): string[] {
-	const numBytes = addresses.wPokedexFlagBytes;
+	const numBytes = addresses.wPokédexFlagBytes;
 
-	fileHex = writeFlagArray(fileHex, addresses.wPokedexCaught, pokedex.caught, numBytes);
-	fileHex = writeFlagArray(fileHex, addresses.wPokedexSeen, pokedex.seen, numBytes);
+	fileHex = writeFlagArray(fileHex, addresses.wPokédexCaught, pokedex.caught, numBytes);
+	fileHex = writeFlagArray(fileHex, addresses.wPokédexSeen, pokedex.seen, numBytes);
 
 	return fileHex;
 }

@@ -38,6 +38,8 @@ const SYMBOLS = [
   'wPartyMon1HyperTraining',
   'wPartyMon1Nickname',
   'wGameData',
+  'wPokédexCaught',
+  'wPokédexSeen',
 ];
 
 //Converts wRAM address to sRAM
@@ -47,9 +49,10 @@ function wToSRAM(address: string): number {
 }
 
 function makeAddress(addresses: Record<string, number>): Record<string, number> {
+  const offset = addresses.sBackupGameData - addresses.wGameData;
   for (const [symbol, address] of Object.entries(addresses)) {
     if (symbol.startsWith('s')) continue;
-    addresses[symbol] = address + addresses.sBackupGameData - addresses.wGameData;
+    addresses[symbol] = address + offset;
   }
   return addresses;
 }
@@ -65,4 +68,8 @@ function extractAddresses(ADDRESSES: string[]): Record<string, number> {
 
 const ADDRESSES = splitReadNew('../polishedcrystal.sym');
 const addresses = makeAddress(extractAddresses(ADDRESSES.polished));
+
+//Derived values
+addresses.wPokédexFlagBytes = addresses.wPokédexSeen - addresses.wPokédexCaught;
+
 export default addresses;

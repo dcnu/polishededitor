@@ -13,10 +13,10 @@ function parseFlagArray(fileHex: string[], startAddress: number, numBytes: numbe
 }
 
 function parsePokedex(fileHex: string[], PF: 'polished' | 'faithful'): Pokedex {
-	const numBytes = addresses.wPokedexFlagBytes;
+	const numBytes = addresses.wPokédexFlagBytes;
 
-	const caught = parseFlagArray(fileHex, addresses.wPokedexCaught, numBytes);
-	const seen = parseFlagArray(fileHex, addresses.wPokedexSeen, numBytes);
+	const caught = parseFlagArray(fileHex, addresses.wPokédexCaught, numBytes);
+	const seen = parseFlagArray(fileHex, addresses.wPokédexSeen, numBytes);
 
 	return { caught, seen };
 }
