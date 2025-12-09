@@ -3,6 +3,7 @@ import addresses from './addresses';
 import apricorns from './apricorns';
 import boxThemes from './boxThemes';
 import charmap from './charmap';
+import evolutions from './evolutions';
 import expCandy from './expCandy';
 import growthRates from './growthRates';
 import items from './items';
@@ -32,7 +33,8 @@ for (const [name, obj] of Object.entries({
   expCandy,
   pokemon,
   apricorns,
-  tmhm
+  tmhm,
+  evolutions
 })) {
   writeJSON(name, obj);
 }

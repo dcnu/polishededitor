@@ -22,6 +22,7 @@
 	import Boxes from './boxes/Boxes.svelte';
 	import Party from './party/Party.svelte';
 	import PlayerEditor from './player/Player.svelte';
+	import PokedexOverride from './pokedex/PokedexOverride.svelte';
 
 	let PF: 'polished' | 'faithful' = $state('polished');
 	let file = $state<FileList | null>(null);
@@ -129,7 +130,8 @@
 				{ text: 'Party', id: 'party' },
 				{ text: 'PC Boxes', id: 'boxes' },
 				{ text: 'Bag', id: 'bag' },
-				{ text: 'Player', id: 'player' }
+				{ text: 'Player', id: 'player' },
+				{ text: 'Pokédex', id: 'pokedex' }
 			]}
 		/>
 		<Hr class="mb-3" />
@@ -137,5 +139,6 @@
 		{#if selectedEditor === 'boxes'}<Boxes bind:boxes={boxes!} player={player!} {PF} />{/if}
 		{#if selectedEditor === 'bag'}<Bag bind:bag={bag!} {PF} />{/if}
 		{#if selectedEditor === 'player'}<PlayerEditor bind:player={player!} {PF} />{/if}
+		{#if selectedEditor === 'pokedex'}<PokedexOverride bind:pokedex={pokedex!} party={party!} boxes={boxes!} {PF} />{/if}
 	{/if}
 </div>
