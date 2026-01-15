@@ -12,6 +12,15 @@ A web-based save editor for [Polished Crystal](https://github.com/Rangi42/polish
 - Auto-updates by scraping game data files
 - Dark mode support
 
+## Fork Modifications
+
+Changes from [upstream](https://github.com/KohKaiSern/polishededitor):
+
+- Custom on-screen keyboard for text input
+- N-gram text parsing
+- Pokédex evolution override (mark evolutions as caught/seen)
+- Pokédex sync on save
+
 ## Usage
 
 1. Select your game variant (Polished or Faithful)
@@ -20,40 +29,18 @@ A web-based save editor for [Polished Crystal](https://github.com/Rangi42/polish
 4. Download the edited save
 5. Replace your original save file (backup first)
 
-## Tech Stack
-
-- SvelteKit 5 with TypeScript
-- Tailwind CSS 4
-- Flowbite Svelte components
-- Vercel deployment
-
 ## Development
 
 ```sh
 pnpm install
 pnpm dev
-```
-
-## Building
-
-```sh
 pnpm build
-pnpm preview
+pnpm extract  # regenerate game data from polishedcrystal/ submodule
 ```
-
-## Data Extraction
-
-The editor extracts game data from the `polishedcrystal/` submodule:
-
-```sh
-pnpm extract
-```
-
-This parses ASM files and generates JSON data in `src/data/`.
 
 ## Credits
 
-Rev3lation, Sylvie (Rangi42), Cammy, Emi, FIQ, Darsh
+[KohKaiSern](https://github.com/KohKaiSern/polishededitor) (original), Rev3lation, Sylvie (Rangi42), Cammy, Emi, FIQ, Darsh
 
 ## License
 
