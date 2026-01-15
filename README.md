@@ -16,8 +16,6 @@ A web-based save editor for [Polished Crystal](https://github.com/Rangi42/polish
 
 Changes from [upstream](https://github.com/KohKaiSern/polishededitor):
 
-- Custom on-screen keyboard for text input
-- N-gram text parsing
 - Pokédex evolution override (mark evolutions as caught/seen)
 - Pokédex sync on save
 
