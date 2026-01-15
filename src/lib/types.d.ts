@@ -61,3 +61,8 @@ export interface Player {
   money: number;
   gender: string;
 }
+
+export interface Pokedex {
+  caught: boolean[];
+  seen: boolean[];
+}
